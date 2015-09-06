@@ -28,6 +28,13 @@ that was stored with ska-point-to-register."
 (let ((tmp (point-marker)))
 (jump-to-register 8)   
 (set-register 8 tmp)))   
+
+(defun du-onekey-compile ()
+  "Save buffers and start compile"
+  (interactive)
+  (save-some-buffers t)
+  (switch-to-buffer-other-window "*compilation*")
+  (compile compile-command))
 ;;--------------------------END-------------------------
 
 ;;----------------------Extensions----------------------
@@ -118,10 +125,16 @@ that was stored with ska-point-to-register."
 (transient-mark-mode t)    
 (setq visible-bell -1)  
 (setq fill-column 80)                   ;;set max column
+(setq-default compile-command "make") 
 (setq frame-title-format "inksmallfrog@%b")     ;;show current doc
 (which-function-mode t)                 ;在状态条上显示当前光标在哪个函数体内部  
 (auto-compression-mode 1)               ;打开压缩文件时自动解压缩 
 (setq major-mode 'text-mode)            ;;use text-mode as default
+
+(require 'linum) 
+(global-linum-mode t) 
+(put 'upcase-region 'disabled nil) 
+
 ;;brankets matching
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
@@ -133,7 +146,11 @@ that was stored with ska-point-to-register."
 ;;------------------------end---------------------------
 
 ;;---------------------KeySetting-----------------------
+(global-set-key [C-f7] 'compile)
+
 (global-set-key [f1] 'shell);F1进入Shell
+(global-set-key [f6] 'gdb);;F6 GDB
+(global-set-key [f7] 'du-onekey-compile);;F7 MAKE
 (global-set-key [f11] 'my-fullscreen) ;;F11: show emacs with fullscreen mode
 ;;;C-.来在当前位置做个标记  
 ;;用C-,就回到刚才做标记的地方A，再用C-,又会回到B   
