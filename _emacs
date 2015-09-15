@@ -105,8 +105,25 @@ that was stored with ska-point-to-register."
 ;;------------------------end---------------------------
 
 ;;----------------------autopair------------------------
-(require 'electric)
-(electric-pair-mode t)
+;(require 'electric)
+;(electric-indent-mode t)
+;(electric-pair-mode t)
+;(electric-layout-mode t)
+;;             C  mode
+(add-hook 'c-mode-common-hook 'my-c-mode-auto-pair)
+(defun my-c-mode-auto-pair ()
+  (interactive)
+  (make-local-variable 'skeleton-pair-alist)
+  (setq skeleton-pair-alist  '(
+    (?` ?` _ "''")
+    (?\(  _ ")")
+    (?\[  _ "]")
+    (?{ \n > _ \n ?} >)))
+  (setq skeleton-pair t)
+  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
 ;;------------------------end---------------------------
 
 ;;--------------------Preference------------------------
