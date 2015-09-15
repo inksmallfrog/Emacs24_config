@@ -1,0 +1,4 @@
+((("SDL_CreateWindow" .
+   [1 0 0 0 0 0 0 0 0 0 1 2 0 0 0 1])
+  ("(const char *title, int x, int y, int w, int h, Uint32 flags)" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])))

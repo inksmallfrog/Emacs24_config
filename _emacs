@@ -2,6 +2,17 @@
 ;;; Commentary:
 
 ;;; Code:
+;;---------------------PrepareElpa----------------------
+(require 'package)
+(add-to-list 'package-archives'
+  ("elpa" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives' 
+  ("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives'
+  ("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+;;-------------------------END--------------------------
+
 ;;-----------------------Functions----------------------
 ;;FullScreen
 ;;from http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html
@@ -65,8 +76,43 @@ that was stored with ska-point-to-register."
 
 ;;----------------------autoComplete--------------------
 ;;from http://auto-complete.org/doc/manual.html#installation
-;;(require 'auto-complete-config)
-;;(ac-config-default)
+(require 'auto-complete)  
+(require 'auto-complete-config)  
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20150618.1949/dict")  
+(ac-config-default) 
+(require 'auto-complete-clang)
+;(setq ac-auto-start nil)
+;(setq ac-quick-help-delay 0.5)
+;(define-key ac-mode-map  [(control tab)] 'auto-complete)
+(defun my-ac-config ()
+  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
+  ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
+  (add-hook 'css-mode-hook 'ac-css-mode-setup)
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+  (global-auto-complete-mode t))
+(defun my-ac-cc-mode-setup ()
+  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+;; ac-source-gtags
+(my-ac-config)
+
+(setq ac-clang-flags
+      (mapcar (lambda (item)(concat "-I" item))
+              (split-string
+               "
+ /usr/local/include
+ /usr/include
+ /usr/include/SDL2
+"
+               )))
+
+;(add-to-list 'load-path
+ ;             "~/.emacs.d/elpa/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+ 
 ;;--------------------------end-------------------------
 
 ;;---------------------company-mode---------------------
@@ -76,17 +122,6 @@ that was stored with ska-point-to-register."
 
 
 ;;------------------------Common------------------------
-;;---------------------PrepareElpa----------------------
-(require 'package)
-(add-to-list 'package-archives'
-  ("elpa" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives' 
-  ("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives'
-  ("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-;;-------------------------end--------------------------
-
 ;;----------------------UserInfo------------------------
 (setq user-full-name "inksmallfrog")
 (setq user-mail-address "inksmallfrog@gmail.com")
@@ -105,9 +140,9 @@ that was stored with ska-point-to-register."
 ;;------------------------end---------------------------
 
 ;;----------------------autopair------------------------
-;(require 'electric)
+(require 'electric)
 ;(electric-indent-mode t)
-;(electric-pair-mode t)
+(electric-pair-mode t)
 ;(electric-layout-mode t)
 ;;             C  mode
 (add-hook 'c-mode-common-hook 'my-c-mode-auto-pair)
@@ -119,13 +154,17 @@ that was stored with ska-point-to-register."
     (?\" _ "\"")
     (?\(  _ ")")
     (?\[  _ "]")
-    (?{ \n > _ \n ?} >)))
+    (?{ \n  _ \n ?} >)))
   (setq skeleton-pair t)
   (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+;;------------------------end---------------------------
+
+;;----------------------gdb-ui--------------------------
+(setq gdb-many-windows t)
 ;;------------------------end---------------------------
 
 ;;--------------------Preference------------------------
@@ -171,6 +210,7 @@ that was stored with ska-point-to-register."
 (global-set-key [f6] 'gdb);;F6 GDB
 (global-set-key [f7] 'du-onekey-compile);;F7 MAKE
 (global-set-key [f11] 'my-fullscreen) ;;F11: show emacs with fullscreen mode
+;(global-set-key [f12] 'semantic-ia-fast-jump) ;;F12 Function Defination
 ;;;C-.来在当前位置做个标记  
 ;;用C-,就回到刚才做标记的地方A，再用C-,又会回到B   
 (global-set-key [(control ?.)] 'ska-point-to-register)
