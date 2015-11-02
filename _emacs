@@ -48,6 +48,26 @@ that was stored with ska-point-to-register."
   (compile compile-command))
 ;;--------------------------END-------------------------
 
+;;-----------------------Markdown-----------------------
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.text\\'", markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;;--------------------------END-------------------------
+
+;;------------------------Python------------------------
+(add-to-list 'load-path "/home/inksmallfrog/.emacs.d/elpa/python-mode-master-ff82c453cf8bc7918f3e48a78fa524443cf04533/") 
+(setq py-install-directory "/home/inksmallfrog/.emacs.d/elpa/python-mode-master-ff82c453cf8bc7918f3e48a78fa524443cf04533/")
+
+(require 'python-mode)
+;(load-file "/home/inksmallfrog/.emacs.d/gabrielelanaro-emacs-for-python-2f284d1/epy-init.el")
+;(add-to-list 'load-path "/home/inksmallfrog/.emacs.d/gabrielelanaro-emacs-for-python-2f284d1/")
+;(require 'epy-setup)
+;(require 'epy-python)
+;(require 'epy-completion)
+
+;;------------------------------------------------------
+
 ;;----------------------Extensions----------------------
 ;;-------------------------irony------------------------
 ;;from https://github.com/Sarcasm/irony-mode
@@ -78,12 +98,26 @@ that was stored with ska-point-to-register."
 ;;from http://auto-complete.org/doc/manual.html#installation
 (require 'auto-complete)  
 (require 'auto-complete-config)  
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20150618.1949/dict")  
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20150618.1949/dict")
+(defcustom ac-modes
+  '(emacs-lisp-mode
+    lisp-mode
+    lisp-interaction-mode
+    java-mode clojure-mode scala-mode
+    scheme-mode
+    ocaml-mode tuareg-mode
+    perl-mode cperl-mode python-mode ruby-mode
+    ecmascript-mode javascript-mode js-mode js2-mode php-mode css-mode
+    makefile-mode sh-mode fortran-mode f90-mode ada-mode
+    xml-mode sgml-mode)
+  "Major modes `auto-complete-mode' can run on."
+  :type '(repeat symbol)
+  :group 'auto-complete)
 (ac-config-default) 
 (require 'auto-complete-clang)
-;(setq ac-auto-start nil)
-;(setq ac-quick-help-delay 0.5)
-;(define-key ac-mode-map  [(control tab)] 'auto-complete)
+(setq ac-auto-start nil)
+(setq ac-quick-help-delay 0.5)
+(define-key ac-mode-map  [(control tab)] 'auto-complete)
 (defun my-ac-config ()
   (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
@@ -107,9 +141,8 @@ that was stored with ska-point-to-register."
  /usr/include/SDL2
 "
                )))
-
 ;(add-to-list 'load-path
- ;             "~/.emacs.d/elpa/yasnippet")
+ ;            "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
  
@@ -180,11 +213,13 @@ that was stored with ska-point-to-register."
 (menu-bar-mode -1)                              ;;remove menu bar
 (scroll-bar-mode -1)                            ;;remove scroll bar
 (setq make-backup-files -1)
+(setq backup-directory-alist (quote (("." . "~/.backups"))))
 (transient-mark-mode t)    
 (setq visible-bell -1)  
 (setq fill-column 80)                   ;;set max column
 (setq-default compile-command "make") 
 (setq frame-title-format "inksmallfrog@%b")     ;;show current doc
+(define-coding-system-alias 'UTF-8 'utf-8)
 (which-function-mode t)                 ;在状态条上显示当前光标在哪个函数体内部  
 (auto-compression-mode 1)               ;打开压缩文件时自动解压缩 
 (setq major-mode 'text-mode)            ;;use text-mode as default
