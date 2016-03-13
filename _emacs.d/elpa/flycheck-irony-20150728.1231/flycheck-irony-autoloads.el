@@ -1,10 +1,10 @@
 ;;; flycheck-irony-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flycheck-irony-setup) "flycheck-irony" "flycheck-irony.el"
-;;;;;;  (21995 53508 702141 549000))
+;;;### (autoloads nil "flycheck-irony" "flycheck-irony.el" (22244
+;;;;;;  41960 485209 407000))
 ;;; Generated autoloads from flycheck-irony.el
 
 (autoload 'flycheck-irony-setup "flycheck-irony" "\
@@ -16,16 +16,9 @@ Add `irony' to `flycheck-checkers'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flycheck-irony-pkg.el") (21995 53508
-;;;;;;  788255 798000))
-
-;;;***
-
-(provide 'flycheck-irony-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flycheck-irony-autoloads.el ends here

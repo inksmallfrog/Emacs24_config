@@ -1,10 +1,10 @@
 ;;; let-alist-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (let-alist) "let-alist" "let-alist.el" (21995 53467
-;;;;;;  522143 271000))
+;;;### (autoloads nil "let-alist" "let-alist.el" (22244 41947 719399
+;;;;;;  122000))
 ;;; Generated autoloads from let-alist.el
 
 (autoload 'let-alist "let-alist" "\
@@ -42,16 +42,9 @@ displayed in the example above.
 
 ;;;***
 
-;;;### (autoloads nil nil ("let-alist-pkg.el") (21995 53467 623060
-;;;;;;  653000))
-
-;;;***
-
-(provide 'let-alist-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; let-alist-autoloads.el ends here

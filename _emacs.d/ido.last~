@@ -1,0 +1,40 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/inksmallfrog/" . ".emacs.d/")
+ ("/home/" . "inksmallfrog/")
+ ("/" . "home/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/inksmallfrog/.emacs.d/lisp/"
+ "/home/inksmallfrog/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init-irony.el"
+ "init.el"
+ "init-flymake.el"
+ "init-flyspell.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/inksmallfrog/.emacs.d/lisp/" (22244 41458 686846 262000) "init-auto-complete.el" "init-ac-source.el" "init-smex.el" "cc-defs.elc" "cc-menus.elc" "./" "cc-bytecomp.elc" "init-ido.el" "init-markdown.el~" "init-showtime.el" "init-ido.el~" "init-flymake.el" "themes/" "init-cstyle.el" "cc-align.elc" "init-elpa.el" "cc-engine.elc" "init-cstyle.el~" "google-c-style.el" "cc-guess.elc" "init-gui.el" "cc-vars.elc" "init-fonts.el" "cc-awk.elc" "init-markdown.el" "init-smex.el~" "cc-cmds.elc" "../" "cc-compat.elc" "cc-subword.elc" "init-flyspell.el" "init-pair.el" "cc-fix.elc" "init-theme.el~" "init-func.el" "init-yasnippet.el" "cc-lobotomy.elc" "cc-styles.elc" "cc-mode.elc" "cc-langs.elc" "init-utils.el" "init-fonts.el~" "init-org.el" "init-theme.el" "cc-fonts.elc")
+
+ ("/home/inksmallfrog/.emacs.d/" (22244 42003 338520 347000) "./" "ac-comphist.dat" "ido.last~" "init.el~" "elpa/" "smex-items" "snippets/" "../" "ido.last" "init.el" "lisp/" "auto-save-list/")
+
+ ("/home/inksmallfrog/.emacs.d/elpa/" (22244 41960 485209 407000) "pkg-info-20150517.443/" "./" "flyspell-lazy-20141222.652/" "ido-yes-or-no-20160217.1617/" "autopair-20160304.437/" "let-alist-1.0.4/" "dash-20160306.1222/" "company-irony-20150810.239/" "flycheck-20160307.739/" "flymake-easy-20140818.55/" "flymake-checkers-0.5/" "auto-complete-20160229.1706/" "gnupg/" "markdown-mode-20160310.2053/" "ido-ubiquitous-20160220.1642/" "popup-20151222.1339/" "yasnippet-20160226.1359/" "company-20160311.448/" "seq-1.11.signed" "flycheck-irony-20150728.1231/" "let-alist-1.0.4.signed" "ido-completing-read+-20160220.1642/" "../" "seq-1.11/" "smex-20151212.1409/" "irony-20160203.1207/" "auto-complete-clang-20140409.52/" "archives/" "epl-20150517.433/")
+
+ ("/home/inksmallfrog/.emacs.d/elpa/flycheck-irony-20150728.1231/" (22244 41960 817254 972000) "./" "flycheck-irony-autoloads.el~" "flycheck-irony-autoloads.el" "flycheck-irony.el" "../" "flycheck-irony-pkg.elc" "flycheck-irony.elc" "flycheck-irony-pkg.el")
+
+ ("/home/" (22230 58819 283792 787000) "./" "../" "inksmallfrog/")
+
+ ("/home/inksmallfrog/" (22244 40979 326965 425000) ".zshrc" ".AMD/" ".dbus/" ".solfegerc" ".vimrc.bundles" "./" ".solfege/" ".vimrc.before" "life/" ".viminfo" ".clang_complete" ".java/" ".zcompdump-INKLOVE-5.1.1" ".xsession-errors.old" ".Xauthority" ".bashrc" ".nvm/" ".vimswap/" "桌面/" ".local/" "doc/" ".oh-my-zsh/" ".npm/" "图片/" ".profile" ".vimundo/" ".themes/" ".ICEauthority" ".pki/" ".dmrc" "simple_emacs24/" ".config/" "公共的/" ".gnupg/" ".vim/" "spf13-vim.sh" ".spf13-vim-3/" ".emacs.d/" ".IdeaIC15/" ".backups/" ".zcompdump" "code/" ".subversion/" ".bash_history" ".designer/" ".zsh-update" ".sudo_as_admin_successful" "../" ".xsession-errors" ".vimviews/" "下载/" "视频/" "模板/" ".gconf/" ".vimrc" "develop/" "音乐/" ".vimrc.local" "Emacs24_config/" "shell/" "文档/" ".cache/" ".bash_logout" ".mozilla/" ".vimbackup/" ".presage/" ".thunderbird/" ".zsh_history" ".oracle_jre_usage/" ".gnome/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,0 +1,6 @@
+;;init-fonts.el
+
+(set-default-font "Inconsolata-18")
+
+
+(provide 'init-fonts)

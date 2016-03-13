@@ -1,0 +1,6 @@
+;;init-theme.el
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/themes/")
+(load-theme 'molokai t)
+
+(provide 'init-theme)

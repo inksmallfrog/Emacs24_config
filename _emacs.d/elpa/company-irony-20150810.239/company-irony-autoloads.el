@@ -1,10 +1,10 @@
 ;;; company-irony-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (company-irony-setup-begin-commands company-irony)
-;;;;;;  "company-irony" "company-irony.el" (21995 53179 314155 325000))
+;;;### (autoloads nil "company-irony" "company-irony.el" (22244 41929
+;;;;;;  512597 965000))
 ;;; Generated autoloads from company-irony.el
 
 (autoload 'company-irony "company-irony" "\
@@ -25,16 +25,9 @@ include these commands by default.
 
 ;;;***
 
-;;;### (autoloads nil nil ("company-irony-pkg.el") (21995 53179 423309
-;;;;;;  914000))
-
-;;;***
-
-(provide 'company-irony-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; company-irony-autoloads.el ends here

@@ -1,0 +1,20 @@
+
+;; ----- smex-history -----
+(
+ list-packages
+ package-install
+ irony-mode
+ customize-group
+ cd
+ 5x5
+ arp
+)
+
+;; ----- smex-data -----
+(
+ (package-install . 9)
+ (irony-install-server . 1)
+ (customize-group . 1)
+ (irony-mode . 2)
+ (list-packages . 1)
+)
